@@ -5,7 +5,7 @@ In this assignment you will make a near real-time reactive bike computer. The ov
 
 The **Re:activity** cloud service may also produce insights from the data produced by riders cycling nearby yourself.
 
-![WebClient](./pre/webclient.png)
+![WebClient](./pre/img/webclient.png)
 
 The `pre` folder contains an example server and test client:
 
@@ -13,15 +13,25 @@ The `pre` folder contains an example server and test client:
 * `testclient` A test client that will replay data from the gpx files in the data folder.
 
 The `pre/data` folder contains:
-* Test GPX data files from 12 real cyclist from the [Tour d'Afrique](http://tdaglobalcycling.com/tour-dafrique) 2017, stage 109, Sesriem - Betta (137 km) going through the Namib desert.
+* Test GPX data files from 12 real cyclist from the [Tour d'Afrique](http://tdaglobalcycling.com/tour-dafrique) 2017, stage 109, Sesriem - Betta (137 km) going through the Namib desert. You can replay this data using `testclient.py`.
 
-To use the example code you will need to signup for a Google Maps API key and add it to `server.py`.
+To use the example code you will need to signup for a Google Maps API key and add it to `server.py`. You also need to install some required libraries:
+
+```bash
+> pip3 install rx
+> pip3 install tornado
+> pip3 install jinja2
+```
 
 In first terminal:
-`> python3 server.py`
+```bash
+> python3 server.py
+```
 
 In second terminal:
-`> python3 testclient.py`
+```bash
+> python3 testclient.py
+```
 
 To use a web client, point your browser to:
 [http//localhost:8080](http//localhost:8080)
@@ -36,7 +46,7 @@ In this assingments we expect that you use [RxPY](https://github.com/ReactiveX/R
 * Current speed (km/h)
 * Max speed (km/h)
 * Moving average speed for the last minute (km/h)
-* Time to destination (-25.3825800,16.4237190), based on avg speed .
+* Time to destination (-25.3825800,16.4237190), based on avg speed.
 * Time to sunset. Cycling in Africa after dark is very dangerous (cars and wild animals), so you better reach the destination before the sun goes down. https://sunrise-sunset.org/api. Note that you may not use this API in a manner that exceeds reasonable request volume.
 
 **NOTE:** All analytics code must be unit-tested. Analytics code that deals with time must be unit-tested in virtual time.
@@ -62,6 +72,7 @@ The usual:
 * Make a cool dashboard on the web-page that displays the produced insights and notifications for a given rider.
 * Notification that a rider has been picked up by a car.
 * Sunset notification. Speed up to reach destination before dark
+* Use Google reverse geocoding API to lookup names for points of interrest (POI). That may be start, stops along the way, destination etc.
 * Make something cool.
 
 # Resources on reactive programming
@@ -74,3 +85,8 @@ The usual:
 * Rx Virtual Time, https://channel9.msdn.com/Shows/Going+Deep/Wes-Dyer-and-Jeffrey-Van-Gogh-Inside-Rx-Virtual-Time
 * Channel 9, Rx, https://channel9.msdn.com/Tags/rx
 * NamibRand, http://www.info-namibia.com/activities-and-places-of-interest/sossusvlei/namibrand-nature-reserve
+
+### Happy hacking!
+
+![NamibRand](./pre/img/namibrand.jpg)
+
