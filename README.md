@@ -4,7 +4,7 @@ In this assignment you will make a near real-time reactive bike computer. The ov
 
 The **Re:activity** cloud service may also produce insights from the data produced by riders cycling nearby yourself.
 
-![WebClient](./webclient.png)
+![WebClient](./pre/webclient.png)
 
 The `pre` folder contains an example server and test client:
 
