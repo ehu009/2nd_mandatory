@@ -1,4 +1,5 @@
-# Second mandatory assignment: Re:activity - A reactive bike activity computer
+# Second mandatory assignment:
+# Re:activity - A reactive bike activity computer
 
 In this assignment you will make a near real-time reactive bike computer. The overall idea is that you will have a bike computer that is always online. The computer connects and streams its current position to a the **Re:activity** cloud service. The **Re:activity** cloud service will react to the incoming data, and produce insights from the stream of events that it will feed back to the client.
 
@@ -43,9 +44,9 @@ In this assingments we expect that you use [RxPY](https://github.com/ReactiveX/R
 ## Notifications
 
 * Rider detection (you are passing/or being passed by someone)
-* [Lunch](http://tdaglobalcycling.com/2013/04/the-lunch-truck/) or [coke-stop](http://tdaglobalcycling.com/2015/03/i-really-want-a-coke-stop/) detection. Other riders have stopped at this place.
+* [Lunch](http://tdaglobalcycling.com/2013/04/the-lunch-truck/) or [coke-stop](http://tdaglobalcycling.com/2015/03/i-really-want-a-coke-stop/) detection. Other riders have stopped at this place. Give a notification when approaching. Can we detect the difference between lunch and a coke-stop?
 
-## Trending People
+## Friends
 
 * Produce a people model (collection of people) that are the most relevant to to a given rider. This is the people you cycle the most together with, or pass on your way.
 
@@ -59,6 +60,7 @@ The usual:
 # Bonus points
 
 * Make a cool dashboard on the web-page that displays the produced insights and notifications for a given rider.
+* Notification that a rider has been picked up by a car.
 * Sunset notification. Speed up to reach destination before dark
 * Make something cool.
 
