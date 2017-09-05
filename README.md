@@ -1,13 +1,13 @@
 ## Second mandatory assignment:
 # Re:activity - A reactive bike computer
 
-In this assignment you will make a near real-time reactive bike computer. The overall idea is that you will have a bike computer that is always online. The computer connects and streams its current position to a the **Re:activity** cloud service. The **Re:activity** cloud service will react to the incoming data, and enritch the stream with insights that it will feed back to the client.
+In this assignment you will make a near real-time reactive bike computer. The overall idea is that you will have a bike computer that is always online. The computer connects over the mobile network (3G) and streams its current position to a the **Re:activity** cloud service. The **Re:activity** cloud service will react to the incoming data, and enrich the stream with insights that it will feed back to the client.
 
-The **Re:activity** cloud service may also produce insights from the data produced by riders cycling nearby yourself.
+The **Re:activity** cloud service also receives data from other riders, and can also produce insights based on the data produced by these other riders.
 
 ![WebClient](./pre/img/webclient.png)
 
-The `pre` folder contains an example server and test client:
+The `pre` folder contains an example server and test client. Please note that this code have only been tested with Python 3.5+:
 
 * `server.py` An example **Re:activity** server that supports multiple (test) clients using web sockets.
 * `testclient` A test client that will replay data from the gpx files in the data folder.
@@ -60,7 +60,7 @@ In this assingments we expect that you use [RxPY](https://github.com/ReactiveX/R
 
 ## Friends
 
-* Produce a TopN people model (collection of people) that are the most relevant to to a given rider. This is the people you cycle the most together with, or pass on your way.
+* Produce a TopN people model (ordered collection of people) that are the most relevant to to a given rider. This is the people you cycle the most together with, or pass on your way.
 
 # Hand-in
 
@@ -71,10 +71,11 @@ The usual:
 
 # Bonus points
 
-* Make a cool dashboard on the web-page that displays the produced insights and notifications for a given rider.
-* Notification that a rider has been picked up by a car, or breaks the laws of cycling physics.
-* Sunset notification. Speed up to reach destination before dark
-* Use Google reverse geocoding API to lookup names for points of interrest (POI). That may be start, stops along the way, destination etc.
+* Make a cool dashboard on the web-page that displays produced insights and notifications for a given rider.
+* Display a notification to other riders if a rider has been picked up by a car, or breaks the laws of cycling physics.
+* Sunset notification to make a rider speed up to reach destination before dark
+* Use Google reverse geocoding API to lookup names for points of interrest (POI). Such places may be start, stops along the way, destination etc.
+* Explain if the produced insights are hot or cold based on when a client connects to the server (hint: will all clients see the same view for a given rider?). Is your solution hot or cold, and is that good or not for an application like this?
 * Make something cool.
 
 # Resources on reactive programming
@@ -86,6 +87,7 @@ The usual:
 * RxJava wiki, https://github.com/ReactiveX/RxJava/wiki
 * Rx Virtual Time, https://channel9.msdn.com/Shows/Going+Deep/Wes-Dyer-and-Jeffrey-Van-Gogh-Inside-Rx-Virtual-Time
 * Channel 9, Rx, https://channel9.msdn.com/Tags/rx
+* Hot and Cold Observables, http://davesexton.com/blog/post/Hot-and-Cold-Observables.aspx, http://www.introtorx.com/content/v1.0.10621.0/14_HotAndColdObservables.html
 * NamibRand, http://www.info-namibia.com/activities-and-places-of-interest/sossusvlei/namibrand-nature-reserve
 
 ### Happy Rx hacking!
