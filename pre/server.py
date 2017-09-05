@@ -1,13 +1,11 @@
 import os
-from datetime import datetime
 
 from tornado.websocket import WebSocketHandler
 from tornado.web import RequestHandler, StaticFileHandler, Application, url
-from tornado.httputil import url_concat
 from tornado.escape import json_decode, json_encode
 from tornado import ioloop
 
-from rx import Observer, Observable
+from rx import Observer
 from rx.subjects import Subject
 from rx.concurrency import IOLoopScheduler
 

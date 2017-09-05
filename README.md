@@ -1,5 +1,5 @@
-# Second mandatory assignment:
-# Re:activity - A reactive bike activity computer
+## Second mandatory assignment:
+# Re:activity - A reactive bike computer
 
 In this assignment you will make a near real-time reactive bike computer. The overall idea is that you will have a bike computer that is always online. The computer connects and streams its current position to a the **Re:activity** cloud service. The **Re:activity** cloud service will react to the incoming data, and produce insights from the stream of events that it will feed back to the client.
 
@@ -88,7 +88,7 @@ The usual:
 * Channel 9, Rx, https://channel9.msdn.com/Tags/rx
 * NamibRand, http://www.info-namibia.com/activities-and-places-of-interest/sossusvlei/namibrand-nature-reserve
 
-### Happy hacking!
+### Happy Rx hacking!
 
 ![NamibRand](./pre/img/namibrand.jpg)
 
