@@ -1,7 +1,7 @@
 ## Second mandatory assignment:
 # Re:activity - A reactive bike computer
 
-In this assignment you will make a near real-time reactive bike computer. The overall idea is that you will have a bike computer that is always online. The computer connects and streams its current position to a the **Re:activity** cloud service. The **Re:activity** cloud service will react to the incoming data, and produce insights from the stream of events that it will feed back to the client.
+In this assignment you will make a near real-time reactive bike computer. The overall idea is that you will have a bike computer that is always online. The computer connects and streams its current position to a the **Re:activity** cloud service. The **Re:activity** cloud service will react to the incoming data, and enritch the stream with insights that it will feed back to the client.
 
 The **Re:activity** cloud service may also produce insights from the data produced by riders cycling nearby yourself.
 
@@ -60,7 +60,7 @@ In this assingments we expect that you use [RxPY](https://github.com/ReactiveX/R
 
 ## Friends
 
-* Produce a people model (collection of people) that are the most relevant to to a given rider. This is the people you cycle the most together with, or pass on your way.
+* Produce a TopN people model (collection of people) that are the most relevant to to a given rider. This is the people you cycle the most together with, or pass on your way.
 
 # Hand-in
 
@@ -72,7 +72,7 @@ The usual:
 # Bonus points
 
 * Make a cool dashboard on the web-page that displays the produced insights and notifications for a given rider.
-* Notification that a rider has been picked up by a car.
+* Notification that a rider has been picked up by a car, or breaks the laws of cycling physics.
 * Sunset notification. Speed up to reach destination before dark
 * Use Google reverse geocoding API to lookup names for points of interrest (POI). That may be start, stops along the way, destination etc.
 * Make something cool.
