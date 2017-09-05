@@ -21,6 +21,8 @@ To use the example code you will need to signup for a Google Maps API key and ad
 > pip3 install rx
 > pip3 install tornado
 > pip3 install jinja2
+> pip3 install python-dateutil
+> pip3 install geopy
 ```
 
 In first terminal:
