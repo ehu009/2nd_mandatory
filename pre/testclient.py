@@ -1,3 +1,4 @@
+import os
 import time
 import glob
 from datetime import timedelta
@@ -47,7 +48,7 @@ def main():
         ws.write({"lat": point.latitude, "lng": point.longitude, "alt": point.altitude, "name": point.name})
 
     print("Parsing GPS files")
-    for filename in glob.glob("data/*.gpx"):
+    for filename in glob.glob(os.path.join("data", "*.gpx")):
         print(filename)
         username = filename.split("/")[1].split(".")[0]
         ws = WSClient(username)
