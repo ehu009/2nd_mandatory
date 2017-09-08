@@ -70,6 +70,9 @@ def main():
         time.sleep(0.1)
         scheduler.advance_by(timedelta(seconds=20))
 
+        if not scheduler.queue.peek():
+            break
+
 
 if __name__ == '__main__':
     main()
