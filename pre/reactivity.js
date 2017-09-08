@@ -26,13 +26,17 @@ function initMap() {
 
     function getMarker(point) {
         var name = point.name;
-        var icon = "http://maps.google.com/mapfiles/ms/icons/red-dot.png";
+        var icon = "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
+
+        if (name == username) {
+            icon = "http://maps.google.com/mapfiles/ms/icons/green-dot.png";
+        }
 
         if (!(name in markers)) {
             var marker = marker = new google.maps.Marker({
                 map: map,
                 title: name,
-                //icon: icon,
+                icon: icon,
                 animation: google.maps.Animation.DROP
             });
             markers[name] = marker;
