@@ -1,7 +1,7 @@
 import os
 import time
 import glob
-from datetime import timedelta
+from datetime import timedelta, datetime
 
 from tornado.escape import json_encode
 from tornado import ioloop
@@ -13,7 +13,7 @@ from rx.concurrency import HistoricalScheduler
 from gpx import GpxFile
 
 
-scheduler = HistoricalScheduler()
+scheduler = HistoricalScheduler(initial_clock=datetime.fromtimestamp(86400))
 running = True
 
 
@@ -50,7 +50,7 @@ def main():
     print("Parsing GPS files")
     for filename in glob.glob(os.path.join("data", "*.gpx")):
         print(filename)
-        username = filename.split("/")[1].split(".")[0]
+        username = filename.split(os.sep)[1].split(".")[0]
         ws = WSClient(username)
         ioloop.IOLoop.current().run_sync(ws.connect)
 
