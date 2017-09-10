@@ -9,6 +9,8 @@ from rx import Observer
 from rx.subjects import Subject
 from rx.concurrency import IOLoopScheduler
 
+from point import Point
+
 scheduler = IOLoopScheduler()
 
 activities = {}  # type: Dict[str, Activity]
@@ -16,11 +18,9 @@ API_KEY = ""
 
 
 class Activity(Observer):
-    def __init__(self, name):
+    def __init__(self, user):
         self._stream = Subject()
-        self._name = name
-
-        self.clients = []
+        self._user = user
 
     def on_next(self, msg):
         self._stream.on_next(msg)
@@ -54,10 +54,11 @@ class WSHandler(WebSocketHandler):
         def on_error(ex):
             print(ex)
 
-        self._subscription = activity.stream.select(json_encode).subscribe(self.write_message, on_error)
+        self._subscription = activity.stream.select(lambda x: x.to_json()).subscribe(self.write_message, on_error)
 
     def on_message(self, data):
-        msg = json_decode(data)
+        msg = Point.from_json(data)
+        #print(msg)
 
         # Notify all activities
         for activity in activities.values():
@@ -89,7 +90,11 @@ def main():
 
     print("Starting server at port: %s" % port)
     app.listen(port)
-    ioloop.IOLoop.current().start()
+
+    try:
+        ioloop.IOLoop.current().start()
+    except KeyboardInterrupt:
+        pass
 
 
 if __name__ == '__main__':

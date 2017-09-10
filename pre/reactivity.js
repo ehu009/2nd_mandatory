@@ -25,23 +25,23 @@ function initMap() {
     var latest = null;
 
     function getMarker(point) {
-        var name = point.name;
+        var user = point.user;
         var icon = "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
 
-        if (name == username) {
+        if (user == username) {
             icon = "http://maps.google.com/mapfiles/ms/icons/green-dot.png";
         }
 
-        if (!(name in markers)) {
+        if (!(user in markers)) {
             var marker = marker = new google.maps.Marker({
                 map: map,
-                title: name,
+                title: user,
                 icon: icon,
                 animation: google.maps.Animation.DROP
             });
-            markers[name] = marker;
+            markers[user] = marker;
         } else {
-            var marker = markers[name];
+            var marker = markers[user];
         }
 
         return marker;
@@ -67,7 +67,7 @@ function initMap() {
         var marker = getMarker(point);
         marker.setPosition(point);
 
-        if (point.name == username) {
+        if (point.user == username) {
             map.setCenter(point);
         }
     }

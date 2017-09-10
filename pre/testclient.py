@@ -10,7 +10,7 @@ from tornado.websocket import websocket_connect
 
 from rx.concurrency import HistoricalScheduler
 
-from gpx import GpxFile
+from point import Point
 
 
 scheduler = HistoricalScheduler(initial_clock=datetime.fromtimestamp(86400))
@@ -45,22 +45,21 @@ def main():
     def action(scheduler, state):
         ws, point = state
 
-        ws.write({"lat": point.latitude, "lng": point.longitude, "alt": point.altitude, "name": point.name})
+        ws.write({"lat": point.lat, "lng": point.lng, "time": point.time.isoformat(), "alt": point.alt, "user": point.user})
 
     print("Parsing GPS files")
     for filename in glob.glob(os.path.join("data", "*.gpx")):
-        print(filename)
         username = filename.split(os.sep)[1].split(".")[0]
         ws = WSClient(username)
         ioloop.IOLoop.current().run_sync(ws.connect)
 
-        gpx = GpxFile(filename)
+        points = Point.from_gpxfile(filename)
 
-        for point in gpx:
+        for point in points:
             if not start or start.time > point.time:
                 start = point
 
-            point.name = username
+            point.user = username
             scheduler.schedule_absolute(point.time, action, state=(ws, point))
 
     print("Starting at: ", start.time, start)
