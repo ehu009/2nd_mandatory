@@ -41,6 +41,8 @@ To use a web client, point your browser to:
 To follow a particular cyclist:
 [http//localhost:8080/users/dag](http//localhost:8080/users/dag)
 
+**NOTE:** If you cannot get the example code to work, and you get the "SecurityError: The operation is insecure" on Firefox (console), then make sure you reopen a new window or tab, and that you are not reusing an existing one.
+
 # What we expect from you
 
 In this assingments we expect that you use [RxPY](https://github.com/ReactiveX/RxPY) to transform the stream of GEO events into streams of insights such as:
@@ -50,13 +52,14 @@ In this assingments we expect that you use [RxPY](https://github.com/ReactiveX/R
 * Moving average speed for the last minute (km/h)
 * Time to destination (-25.3825800,16.4237190), based on avg speed.
 * Time to sunset. Cycling in Africa after dark is very dangerous (cars and wild animals), so you better reach the destination before the sun goes down. https://sunrise-sunset.org/api. Note that you may not use this API in a manner that exceeds reasonable request volume.
+* Use Google reverse geocoding API to lookup names for points of interrest (POI). Such places may be start, stops along the way, destination etc.
 
 **NOTE:** All analytics code must be unit-tested. Analytics code that deals with time must be unit-tested in virtual time.
 
 ## Notifications
 
 * Rider detection (you are passing/or being passed by someone)
-* [Lunch](http://tdaglobalcycling.com/2013/04/the-lunch-truck/) or [coke-stop](http://tdaglobalcycling.com/2015/03/i-really-want-a-coke-stop/) detection. Other riders have stopped at this place. Give a notification when approaching. Can we detect the difference between lunch and a coke-stop?
+* [Lunch](http://tdaglobalcycling.com/2013/04/the-lunch-truck/) or [coke-stop](http://tdaglobalcycling.com/2015/03/i-really-want-a-coke-stop/) detection. Other riders have stopped at this place. Give a notification to the user when he/she is approaching.
 
 ## Friends
 
@@ -71,11 +74,11 @@ The usual:
 
 # Bonus points
 
-* Make a cool dashboard on the web-page that displays produced insights and notifications for a given rider.
-* Display a notification to other riders if a rider has been picked up by a car, or breaks the laws of cycling physics.
+* Make a dashboard on the web-page that displays produced insights and notifications for a given rider.
+* Display a notification to other riders if a rider breaks the laws of cycling physics (been picked up by a car)
 * Sunset notification to make a rider speed up to reach destination before dark
-* Use Google reverse geocoding API to lookup names for points of interrest (POI). Such places may be start, stops along the way, destination etc.
-* Explain if the produced insights are hot or cold based on when a client connects to the server (hint: will all clients see the same view for a given rider?). Is your solution hot or cold, and is that good or not for an application like this?
+* Explain if the produced insights are hot or cold based on when a client connects to the server (hint: will all clients see the same view for a given rider?).
+* Move parts of the solution client-side using RxJS.
 * Make something cool.
 
 # Resources on reactive programming
@@ -88,9 +91,9 @@ The usual:
 * Rx Virtual Time, https://channel9.msdn.com/Shows/Going+Deep/Wes-Dyer-and-Jeffrey-Van-Gogh-Inside-Rx-Virtual-Time
 * Channel 9, Rx, https://channel9.msdn.com/Tags/rx
 * Hot and Cold Observables, http://davesexton.com/blog/post/Hot-and-Cold-Observables.aspx, http://www.introtorx.com/content/v1.0.10621.0/14_HotAndColdObservables.html
-* NamibRand, http://www.info-namibia.com/activities-and-places-of-interest/sossusvlei/namibrand-nature-reserve
 
 ### Happy Rx hacking!
 
 ![NamibRand](./pre/img/namibrand.jpg)
 
+* NamibRand, http://www.info-namibia.com/activities-and-places-of-interest/sossusvlei/namibrand-nature-reserve
