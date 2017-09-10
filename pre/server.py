@@ -11,7 +11,16 @@ from rx.concurrency import IOLoopScheduler
 
 from point import Point
 
-scheduler = IOLoopScheduler()
+
+virtual_clock = None
+
+
+def clock():
+    return virtual_clock or time.time()
+
+
+loop = ioloop.IOLoop(time_func=clock)
+scheduler = IOLoopScheduler(loop)
 
 activities = {}  # type: Dict[str, Activity]
 API_KEY = ""
