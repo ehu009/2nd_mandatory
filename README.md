@@ -72,6 +72,11 @@ The usual:
 * Code in `src/`
 * Report in `doc/`
 
+###Deadline
+The final Hand-in must be pushed to your own repository in the classroom prior to:
+
+* October 4. 23:00
+
 # Bonus points
 
 * Make a dashboard on the web-page that displays produced insights and notifications for a given rider.
