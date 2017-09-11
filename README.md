@@ -73,6 +73,7 @@ The usual:
 * Report in `doc/`
 
 ###Deadline
+
 The final Hand-in must be pushed to your own repository in the classroom prior to:
 
 * October 4. 23:00
