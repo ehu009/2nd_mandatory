@@ -72,7 +72,7 @@ The usual:
 * Code in `src/`
 * Report in `doc/`
 
-###Deadline
+### Deadline
 
 The final Hand-in must be pushed to your own repository in the classroom prior to:
 
