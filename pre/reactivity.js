@@ -9,9 +9,9 @@ function getLocation(callback) {
 }
 
 function initMap() {
-    var hostname = $(location).attr('hostname');
-    var username = $(location).attr('pathname').split("/").slice(-1);
-    var port = $(location).attr('port');
+    var hostname = window.location.hostname;
+    var username = window.location.pathname.split("/").slice(-1);
+    var port = window.location.port;
 
     var myLatLng = {lat: -24.488141, lng: 15.800189};
 
