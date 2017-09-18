@@ -13,7 +13,7 @@ from rx.concurrency import IOLoopScheduler
 from point import Point
 
 
-virtual_clock = None
+virtual_clock = dateparse("2017-05-01 05:06:33").timestamp()
 
 
 def clock():
