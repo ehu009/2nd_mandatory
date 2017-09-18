@@ -82,7 +82,7 @@ def main():
 
         ws.write({"time": scheduler.now.isoformat()})
 
-        if not scheduler.queue.peek():
+        if not len(scheduler.queue):
             break
 
 
