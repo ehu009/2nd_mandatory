@@ -49,7 +49,7 @@ In this assingments we expect that you use [RxPY](https://github.com/ReactiveX/R
 
 * Current speed (km/h)
 * Max speed (km/h)
-* Moving average speed for the last minute (km/h)
+* Moving average speed for the last 5 minutes, with timeshift of 1 minute (km/h)
 * Time to destination (-25.3825800,16.4237190), based on avg speed.
 * Time to sunset. Cycling in Africa after dark is very dangerous (cars and wild animals), so you better reach the destination before the sun goes down. https://sunrise-sunset.org/api. Note that you may not use this API in a manner that exceeds reasonable request volume.
 * Use Google reverse geocoding API to lookup names for points of interrest (POI). Such places may be start, stops along the way, destination etc.
@@ -71,6 +71,12 @@ The usual:
 
 * Code in `src/`
 * Report in `doc/`
+
+### Deadline
+
+The final Hand-in must be pushed to your own repository in the classroom prior to:
+
+* October 4. 23:00
 
 # Bonus points
 
