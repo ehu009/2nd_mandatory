@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as ET
 from dateutil.parser import parse as dateparse
-from geopy.distance import vincenty
+from geopy.distance import vincenty, great_circle
 from tornado.escape import json_decode, json_encode
 
 
@@ -11,9 +11,9 @@ ns = {
 
 
 class Point:
-    def __init__(self):
-        self.lat = 0
-        self.lng = 0
+    def __init__(self, lat=0, lng=0):
+        self.lat = lat
+        self.lng = lng
         self.alt = 0
         self.time = None
         self.user = "unknown"
@@ -22,7 +22,7 @@ class Point:
         self.speed = 0
 
     def distance(self, other) -> int:
-        return vincenty((self.lat, self.lng), (other.lat, other.lng)).meters
+        return great_circle((self.lat, self.lng), (other.lat, other.lng)).meters
 
     @classmethod
     def from_json(cls, json):
