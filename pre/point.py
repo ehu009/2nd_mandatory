@@ -19,6 +19,7 @@ class Point:
         self.user = "unknown"
 
         # Enriched values
+        self.dist_to_goal = 0
         self.speed = 0
 
     def distance(self, other) -> int:
@@ -77,7 +78,8 @@ class Point:
             alt=self.alt,
             time=self.timestr,
             speed=self.speed,
-            user=self.user
+            user=self.user,
+            distance=self.dist_to_goal
         )
         return json_encode(obj)
 

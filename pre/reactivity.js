@@ -68,7 +68,10 @@ function initMap() {
         marker.setPosition(point);
 
         if (point.user == username) {
+            console.log(point);
             map.setCenter(point);
+
+            $("div#chart span.distance").text(point.distance / 1000);
         }
     }
 }
