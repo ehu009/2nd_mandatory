@@ -1,5 +1,6 @@
 import os
 import time
+from dateutil.parser import parse as parsedate
 
 from tornado.websocket import WebSocketHandler
 from tornado.web import RequestHandler, StaticFileHandler, Application, url
@@ -13,7 +14,7 @@ from rx.concurrency import IOLoopScheduler
 from point import Point
 
 
-virtual_clock = dateparse("2017-05-01 05:06:33").timestamp()
+virtual_clock = parsedate("2017-05-01 05:06:33").timestamp()
 
 
 def clock():
