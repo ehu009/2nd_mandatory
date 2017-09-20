@@ -51,8 +51,6 @@ In this assingments we expect that you use [RxPY](https://github.com/ReactiveX/R
 * Max speed (km/h)
 * Moving average speed for the last 5 minutes, with timeshift of 1 minute (km/h)
 * Time to destination (-25.3825800,16.4237190), based on avg speed.
-* Time to sunset. Cycling in Africa after dark is very dangerous (cars and wild animals), so you better reach the destination before the sun goes down. https://sunrise-sunset.org/api. Note that you may not use this API in a manner that exceeds reasonable request volume.
-* Use Google reverse geocoding API to lookup names for points of interrest (POI). Such places may be start, stops along the way, destination etc.
 
 **NOTE:** All analytics code must be unit-tested. Analytics code that deals with time must be unit-tested in virtual time.
 
@@ -81,6 +79,8 @@ The final Hand-in must be pushed to your own repository in the classroom prior t
 # Bonus points
 
 * Make a dashboard on the web-page that displays produced insights and notifications for a given rider.
+* Time to sunset. Cycling in Africa after dark is very dangerous (cars and wild animals), so you better reach the destination before the sun goes down. https://sunrise-sunset.org/api. Note that you may not use this API in a manner that exceeds reasonable request volume.
+* Use Google reverse geocoding API to lookup names for points of interrest (POI). Such places may be start, stops along the way, destination etc.
 * Display a notification to other riders if a rider breaks the laws of cycling physics (been picked up by a car)
 * Sunset notification to make a rider speed up to reach destination before dark
 * Explain if the produced insights are hot or cold based on when a client connects to the server (hint: will all clients see the same view for a given rider?).
