@@ -33,7 +33,7 @@ function initMap() {
         }
 
         if (!(user in markers)) {
-            var marker = marker = new google.maps.Marker({
+            var marker = new google.maps.Marker({
                 map: map,
                 title: user,
                 icon: icon,
@@ -63,13 +63,14 @@ function initMap() {
 
     ws.onmessage = function(msg) {
         var point = JSON.parse(msg.data);
+        var pos = new google.maps.LatLng(point.lat, point.lng);
 
         var marker = getMarker(point);
-        marker.setPosition(point);
+        marker.setPosition(pos);
 
         if (point.user == username) {
             console.log(point);
-            map.setCenter(point);
+            map.setCenter(pos);
 
             $("div#chart span.distance").text(point.distance / 1000);
         }
