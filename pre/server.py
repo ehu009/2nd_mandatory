@@ -28,7 +28,9 @@ loop = ioloop.IOLoop(time_func=clock)
 scheduler = IOLoopScheduler(loop)
 
 activities = {}  # type: Dict[str, Activity]
-API_KEY = ""
+API_KEY = "AIzaSyBHsj-NZcgkW4Cry8HZMgYHhOxQl7c3vHU"
+
+
 
 
 class Activity(Observer):
@@ -48,9 +50,31 @@ class Activity(Observer):
     def distance_calc(self, point):
         return point.distance(destination)
 
+    def combine_with_velocity(self, me, v):
+        me.speed = v
+        return me
+
+
     def combine_with_distance(self, me, dist_to_goal):
         me.dist_to_goal = dist_to_goal
         return me
+
+    def velocity_calc(self, pair):
+        if (pair[0] is not None) and (pair[1] is not None):
+
+            dist = pair[0].distance(pair[1])
+            secs = (pair[1].time - pair[0].time).total_seconds()
+            
+            if secs <= 0:
+                print("YO WTF BE WRONG WIDDAT CLOCK HOMIE")
+                return -1000
+            else:
+                return dist / secs
+
+        else:
+            print("LITERALLY CANT RITE NAO")
+            return -1000
+
 
     @property
     def stream(self):
@@ -61,12 +85,15 @@ class Activity(Observer):
         distance = me.select(self.distance_calc).start_with(0)
         # distance.sample(timedelta(seconds=2000), scheduler=scheduler).subscribe(lambda x: print("Distance %d km" % (x / 1000)))
 
+        speed = me.pairwise().select(self.velocity_calc).start_with(0)
         # speed = me.buffer_with_count(2, 1).start_with(0).subscribe(print)
-        # speed = me.window_with_count(2, 1).select_many(lambda x: x.to_iterable().)
-        # speed = me.pairwise().start_with(0)
+        # speed = me.window_with_count(2, 1).select_many(lambda x: x.to_iterable())
+
 
         me_with_distance = me.with_latest_from(distance, self.combine_with_distance)
-        return me_with_distance.merge(others)
+        me_with_velocity = me_with_distance.with_latest_from(speed, self.combine_with_velocity)
+
+        return me_with_velocity.merge(others)
 
 
 class WSHandler(WebSocketHandler):
